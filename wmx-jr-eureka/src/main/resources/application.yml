@@ -1,0 +1,16 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: jy-eurekaServer
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    instance-id: ${eureka.instance.hostname}:${server.port}
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    registry-fetch-interval-seconds: 30
